@@ -24,6 +24,7 @@ To startup the console, simply type in your commandline.
 *Your shell should work like this in interactive mode:*
 
 $ ./console.py
+"""
 Welcome to the HBnB console. Type help or ? to display commands
 (hbnb) help
 
@@ -57,3 +58,4 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb) 
 $
+"""
