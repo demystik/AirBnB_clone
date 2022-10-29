@@ -31,7 +31,8 @@ Welcome to the AirBnB console. Type help or ? to display commands
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
+
+EOF help quit
 (hbnb)
 (hbnb)
 (hbnb) quit
