@@ -4,28 +4,44 @@
 Console Module
 """
 import cmd
+<<<<<<< HEAD
 import sys
 import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+=======
+>>>>>>> 61907e03ecfb1be2eac4c6fa43cbdf651811b16c
 
 
 class HBNBCommand(cmd.Cmd):
     """ The AirBnB Console """
+<<<<<<< HEAD
     intro = "Welcome to the HBnB console. Type help or ? to display commands\n"
+=======
+>>>>>>> 61907e03ecfb1be2eac4c6fa43cbdf651811b16c
     prompt = "(hbnb) "
     file = None
     __com = ""
     __all_objs = models.storage.all()
 
     # ------ basic console commands -------
+    def emptyline(self):
+        """Used to handle emptyline which by default
+        would have execute previous command"""
+        pass
+
     def do_EOF(self, line):
         """End of file command to exit console"""
         return True
 
     def do_quit(self, line):
+<<<<<<< HEAD
         """Quit command to exit the program"""
         sys.exit(0)
+=======
+        """ Quits the console """
+        return exit
+>>>>>>> 61907e03ecfb1be2eac4c6fa43cbdf651811b16c
 
     def help_quit(self):
         print("Quit command to exit the program\n")
