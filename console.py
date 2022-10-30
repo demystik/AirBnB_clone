@@ -4,24 +4,27 @@
 Console Module
 """
 import cmd
-import sys
 
 
-class Console(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ The AirBnB Console """
-    intro = "Welcome to the HBnB console. Type help or ? to display commands\n"
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
     file = None
 
     # ------ basic console commands -------
+    def emptyline(self):
+        """Used to handle emptyline which by default
+        would have execute previous command"""
+        pass
+
     def do_EOF(self, line):
         """End of file"""
         return True
 
     def do_quit(self, line):
         """ Quits the console """
-        sys.exit(0)
+        return exit
 
 
 if __name__ == "__main__":
-    Console().cmdloop()
+    HBNBCommand().cmdloop()
