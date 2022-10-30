@@ -34,7 +34,6 @@ class FileStorage:
         try:
             with open(self.__file_path, mode="r", encoding="utf-8") as fp:
                 dict_obj = json.load(fp)
-                print(dict_obj)
             for key, value in dict_obj.items():
                 self.__objects[key] = eval(key.split(".")[0])(**value)
         except FileNotFoundError:
