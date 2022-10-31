@@ -6,7 +6,6 @@ objects to a JSON file
 from models.base_model import BaseModel
 import json
 
-
 class FileStorage:
     """serializes and deserializes instances to a JSON file"""
     __file_path = "file.json"
