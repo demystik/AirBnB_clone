@@ -4,12 +4,13 @@
 import cmd
 import sys
 import re
+from shlex import split
 import models
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
 from models.state import State
-from models.city imort City
+from models.city import City
 from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
@@ -34,7 +35,7 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Defines the HolbertomBnB command interpreter.
+    """ Defines the HolbertonBnB command interpreter.
     Attributes:
         prompt (str): The command prompt.
     """
@@ -98,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
             kwargs = {}
             for i in range(1, len(my_com)):
                 key, value = tuple(my_com[i].split("="))
-                if value[0] = '"':
+                if value[0] == '"':
                     value = value.strip('"').replace("_", " ")
                 else:
                     try:
@@ -147,9 +148,8 @@ class HBNBCommand(cmd.Cmd):
             print(f"** class doesn't exist **")
         elif len(arg1) == 1:
             print(f"** instance id missing **")
-        elif:
-            "{}.{}".format(arg1[0], arg[1]) not in objdict.keys():
-                print(f"** no instance found **")
+        elif "{}.{}".format(arg1[0], arg[1]) not in objdict.keys():
+            print(f"** no instance found **")
         else:
             del objdict["{}.{}".format(arg1[0], arg1[1])]
             storage.save()
@@ -159,12 +159,12 @@ class HBNBCommand(cmd.Cmd):
         Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects."""
         arg1 = parse(line)
-        if len(arg1[0]) > 0 and != arg1[0] not in HBNBCommand.__classes:
+        if len(arg1) > 0 and arg1[0] not in HBNBCommand.__classes:
             print(f"** class doesn't exist **")
         else:
             obj_rep = []
             for obj in storage.all().values():
-                if len(arg1) > 0 and arg1[0] == obj.__clas__.__name__:
+                if len(arg1) > 0 and arg1[0] == obj.__class__.__name__:
                     obj_rep.append(obj.__str__())
                 elif len(arg1) == 0:
                     obj_rep.append(obj.__str__())
